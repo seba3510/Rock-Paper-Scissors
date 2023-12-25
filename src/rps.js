@@ -21,18 +21,22 @@ function getComputerChoice() {
     let hi = n - 1;
 
     // Calculate the difference between upper and lower bounds
-    const diff = hi - lo;
+    var diff = hi - lo;
 
-    // Generate a random multiplier between 0 (inclusive) and the difference
-    const mult = Math.random() * diff;
+    // Generate a random number
+    let val = Math.random();
 
-    // Calculate the final random value within the specified range
-    let val = mult + lo;
+    // multiply that # with the difference
+    val = Math.floor(val * (diff));
+
+    // add val with the lower bound of array
+    val = val + lo;
 
     // Determine the computer's choice based on the random value
     // Convert the choice to uppercase for consistency
     switch ((val)) {
         case 0: // Computer chose "Rock"
+
             return arr[0].toUpperCase();
 
         case 1: // Computer chose "Paper"
@@ -40,6 +44,7 @@ function getComputerChoice() {
 
         case 2: // Computer chose "Scissors"
             return arr[2].toUpperCase();
+
     } // switch()
 
 } // getComputerChoice
@@ -82,3 +87,5 @@ function getPlayerChoice() {
     // Return the player's valid choice
     return choice;
 } // getPlayerChoice()
+
+
