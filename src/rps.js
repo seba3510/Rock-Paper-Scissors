@@ -13,8 +13,6 @@ const arr = ["Rock", "Paper", "Scissors"];
  * @returns {string} The computer's random choice ("ROCK", "PAPER", or "SCISSORS").
  */
 function getComputerChoice() {
-
-
     // Get the length of the array representing the game choices
     let n = arr.length;
 
@@ -49,46 +47,39 @@ function getComputerChoice() {
 
     } // switch()
 
-} // getComputerChoice
+} // getComputerChoice()
 
 
 //================================================================================================================
 
 
 /**
- * This function prompts the player to enter their choice.
- * It converts the player's input to uppercase for consistency and returns the chosen option.
- * If an invalid choice is entered, it returns an error message.
+ * Prompts the player to enter their choice for a Rock, Paper, Scissors game.
+ * Converts the player's input to uppercase for consistency and returns the chosen option.
+ * If an invalid choice is entered, it throws an error and displays an alert.
  *
- * @returns {string} The player's choice ("ROCK", "PAPER", or "SCISSORS") or an error message
+ * @returns {string} The player's choice ("ROCK", "PAPER", or "SCISSORS") or an error message.
  */
 function getPlayerChoice() {
-
     // Prompt the player to enter their choice
     let choice = prompt("Rock, Paper, or Scissors?");
 
     // Convert the player's input to uppercase for consistency
-    switch ((choice)) {
+    switch (choice.toLowerCase()) {
         case "rock":
-            choice = choice.toUpperCase();
-            break;
+            return "ROCK";
 
         case "paper":
-            choice = choice.toUpperCase();
-            break;
+            return "PAPER";
 
         case "scissors":
-            choice = choice.toUpperCase();
-            break;
+            return "SCISSORS";
 
         default:
-            // Handle invalid choices and return an error message
+            // Throw an error for invalid choices
             const err = "Invalid choice: " + choice;
-            return err;
+            throw new Error(err);
     } // switch()
-
-    // Return the player's valid choice
-    return choice;
 } // getPlayerChoice()
 
 //================================================================================================================
@@ -101,7 +92,6 @@ function getPlayerChoice() {
  * @returns {boolean} True if the player wins, false otherwise.
  */
 function doesPlayerWin(pChoice, compChoice) {
-
 
 
     // Initialize a variable to track if the player has won
@@ -126,20 +116,20 @@ function doesPlayerWin(pChoice, compChoice) {
 
 } // doesPlayerWin()
 
+
 //================================================================================================================
+
 /**
  * Plays a round of Rock, Paper, Scissors game and determines the result.
- * 
- * @param {string} playerSelection - The selection made by the player
- * @param {string} computerSelection - The selection made by the computer
  *
  * @returns {string} The result message indicating whether the player won, lost, or tied.
  */
-function playRound(playerSelection, computerSelection) {
-
+function playRound() {
     // Get player and computer choices
-    playerSelection = getPlayerChoice();
-    computerSelection = getComputerChoice();
+    let playerSelection = getPlayerChoice();
+
+
+    let computerSelection = getComputerChoice();
 
     // Determine if the player won or if it's a tie
     const hasPlayerWon = doesPlayerWin(playerSelection, computerSelection);
@@ -151,7 +141,7 @@ function playRound(playerSelection, computerSelection) {
     }
 
     else if ((tie)) {
-        return tieMsg(playerSelection);
+        return tieMsg(playerSelection, computerSelection);
     }
 
     else {
@@ -159,8 +149,8 @@ function playRound(playerSelection, computerSelection) {
     }
 } // playRound()
 
-//================================================================================================================
 
+//================================================================================================================
 
 /**
  * Checks if the player's choice and computer's choice result in a tie.
@@ -170,9 +160,7 @@ function playRound(playerSelection, computerSelection) {
  * @returns {boolean} True if it's a tie, false otherwise.
  */
 function isTied(pChoice, compChoice) {
-
     return ((pChoice === compChoice));
-
 } // isTied()
 
 //================================================================================================================
@@ -187,6 +175,7 @@ function isTied(pChoice, compChoice) {
  */
 function winningMsg(pChoice, compChoice) {
     let msg = "You win! " + pChoice + " beats " + compChoice;
+
     return msg;
 } // winningMsg()
 
@@ -201,11 +190,9 @@ function winningMsg(pChoice, compChoice) {
  * @returns {string} The losing message.
  */
 function losingMsg(pChoice, compChoice) {
-
     let msg = "You lose! " + compChoice + " beats " + pChoice;
 
     return msg;
-
 } // losingMsg()
 
 //================================================================================================================
@@ -214,15 +201,17 @@ function losingMsg(pChoice, compChoice) {
 /**
  * Generates a message for a tie scenario.
  *
- * @param {string} choice - The choice made by both the player and the computer
+ * @param {string} pChoice - The player's choice ("ROCK", "PAPER", or "SCISSORS").
+ * @param {string} compChoice - The computer's choice ("ROCK", "PAPER", or "SCISSORS").
  * @returns {string} The tie message.
  */
 function tieMsg(choice) {
-
     let msg = "It's a tie! You both chose " + choice;
-
     return msg;
-
 } // tieMsg()
 
-console.log(playRound("rock", getComputerChoice()));
+//================================================================================================================
+
+
+
+console.log(playRound())
