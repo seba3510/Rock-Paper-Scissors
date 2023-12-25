@@ -88,4 +88,38 @@ function getPlayerChoice() {
     return choice;
 } // getPlayerChoice()
 
+//================================================================================================================
 
+/**
+ * Determines if the player wins in a round  based on their and the computer's choices.
+ *
+ * @param {string} pChoice - The player's choice ("ROCK", "PAPER", or "SCISSORS").
+ * @param {string} compChoice - The computer's choice ("ROCK", "PAPER", or "SCISSORS").
+ * @returns {boolean} True if the player wins, false otherwise.
+ */
+function doesPlayerWin(pChoice, compChoice) {
+    // Get the player's and computer's choices
+    pChoice = getPlayerChoice();
+    compChoice = getComputerChoice();
+
+    // Initialize a variable to track if the player has won
+    let hasWon = false;
+
+    // Check conditions for player victory based on Rock, Paper, Scissors rules
+    if (
+        (pChoice == "ROCK" && compChoice == "SCISSORS") ||
+        (pChoice == "PAPER" && compChoice == "ROCK") ||
+        (pChoice == "SCISSORS" && compChoice == "PAPER")
+    ) {
+
+        hasWon = true;
+    }
+
+    else {
+        hasWon = false;
+    }
+
+    // Return the result indicating whether the player has won
+    return hasWon;
+
+} // doesPlayerWin()
