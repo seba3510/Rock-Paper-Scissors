@@ -41,4 +41,44 @@ function getComputerChoice() {
         case 2: // Computer chose "Scissors"
             return arr[2].toUpperCase();
     } // switch()
+
 } // getComputerChoice
+
+
+//================================================================================================================
+
+
+/**
+ * This function prompts the player to enter their choice.
+ * It converts the player's input to uppercase for consistency and returns the chosen option.
+ * If an invalid choice is entered, it returns an error message.
+ *
+ * @returns {string} The player's choice ("ROCK", "PAPER", or "SCISSORS") or an error message
+ */
+function getPlayerChoice() {
+    // Prompt the player to enter their choice
+    let choice = prompt("Rock, Paper, or Scissors?");
+
+    // Convert the player's input to uppercase for consistency
+    switch ((choice)) {
+        case "rock":
+            choice = choice.toUpperCase();
+            break;
+
+        case "paper":
+            choice = choice.toUpperCase();
+            break;
+
+        case "scissors":
+            choice = choice.toUpperCase();
+            break;
+
+        default:
+            // Handle invalid choices and return an error message
+            const err = "Invalid choice: " + choice;
+            return err;
+    } // switch()
+
+    // Return the player's valid choice
+    return choice;
+} // getPlayerChoice()
