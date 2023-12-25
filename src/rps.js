@@ -201,8 +201,7 @@ function losingMsg(pChoice, compChoice) {
 /**
  * Generates a message for a tie scenario.
  *
- * @param {string} pChoice - The player's choice ("ROCK", "PAPER", or "SCISSORS").
- * @param {string} compChoice - The computer's choice ("ROCK", "PAPER", or "SCISSORS").
+ * @param {string} choice - The choice made by both the player and the computer
  * @returns {string} The tie message.
  */
 function tieMsg(choice) {
