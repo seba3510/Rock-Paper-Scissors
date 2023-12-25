@@ -13,6 +13,8 @@ const arr = ["Rock", "Paper", "Scissors"];
  * @returns {string} The computer's random choice ("ROCK", "PAPER", or "SCISSORS").
  */
 function getComputerChoice() {
+
+
     // Get the length of the array representing the game choices
     let n = arr.length;
 
@@ -61,6 +63,7 @@ function getComputerChoice() {
  * @returns {string} The player's choice ("ROCK", "PAPER", or "SCISSORS") or an error message
  */
 function getPlayerChoice() {
+
     // Prompt the player to enter their choice
     let choice = prompt("Rock, Paper, or Scissors?");
 
@@ -98,9 +101,8 @@ function getPlayerChoice() {
  * @returns {boolean} True if the player wins, false otherwise.
  */
 function doesPlayerWin(pChoice, compChoice) {
-    // Get the player's and computer's choices
-    pChoice = getPlayerChoice();
-    compChoice = getComputerChoice();
+
+
 
     // Initialize a variable to track if the player has won
     let hasWon = false;
@@ -123,3 +125,104 @@ function doesPlayerWin(pChoice, compChoice) {
     return hasWon;
 
 } // doesPlayerWin()
+
+//================================================================================================================
+/**
+ * Plays a round of Rock, Paper, Scissors game and determines the result.
+ * 
+ * @param {string} playerSelection - The selection made by the player
+ * @param {string} computerSelection - The selection made by the computer
+ *
+ * @returns {string} The result message indicating whether the player won, lost, or tied.
+ */
+function playRound(playerSelection, computerSelection) {
+
+    // Get player and computer choices
+    playerSelection = getPlayerChoice();
+    computerSelection = getComputerChoice();
+
+    // Determine if the player won or if it's a tie
+    const hasPlayerWon = doesPlayerWin(playerSelection, computerSelection);
+    const tie = isTied(playerSelection, computerSelection);
+
+    // Return the appropriate result message
+    if ((hasPlayerWon)) {
+        return winningMsg(playerSelection, computerSelection);
+    }
+
+    else if ((tie)) {
+        return tieMsg(playerSelection);
+    }
+
+    else {
+        return losingMsg(playerSelection, computerSelection);
+    }
+} // playRound()
+
+//================================================================================================================
+
+
+/**
+ * Checks if the player's choice and computer's choice result in a tie.
+ *
+ * @param {string} pChoice - The player's choice ("ROCK", "PAPER", or "SCISSORS").
+ * @param {string} compChoice - The computer's choice ("ROCK", "PAPER", or "SCISSORS").
+ * @returns {boolean} True if it's a tie, false otherwise.
+ */
+function isTied(pChoice, compChoice) {
+
+    return ((pChoice === compChoice));
+
+} // isTied()
+
+//================================================================================================================
+
+
+/**
+ * Generates a message for a winning scenario.
+ *
+ * @param {string} pChoice - The player's winning choice ("ROCK", "PAPER", or "SCISSORS").
+ * @param {string} compChoice - The computer's losing choice ("ROCK", "PAPER", or "SCISSORS").
+ * @returns {string} The winning message.
+ */
+function winningMsg(pChoice, compChoice) {
+    let msg = "You win! " + pChoice + " beats " + compChoice;
+    return msg;
+} // winningMsg()
+
+//================================================================================================================
+
+
+/**
+ * Generates a message for a losing scenario.
+ *
+ * @param {string} pChoice - The player's losing choice ("ROCK", "PAPER", or "SCISSORS").
+ * @param {string} compChoice - The computer's winning choice ("ROCK", "PAPER", or "SCISSORS").
+ * @returns {string} The losing message.
+ */
+function losingMsg(pChoice, compChoice) {
+
+    let msg = "You lose! " + compChoice + " beats " + pChoice;
+
+    return msg;
+
+} // losingMsg()
+
+//================================================================================================================
+
+
+/**
+ * Generates a message for a tie scenario.
+ *
+ * @param {string} choice - The choice made by both the player and the computer
+ * @returns {string} The tie message.
+ */
+function tieMsg(choice) {
+
+    let msg = "It's a tie! You both chose " + choice;
+
+    return msg;
+
+} // tieMsg()
+
+console.log(playRound("rock", getComputerChoice()));
