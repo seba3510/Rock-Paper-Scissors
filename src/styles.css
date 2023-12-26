@@ -4,3 +4,17 @@ h1 {
   font-weight: bold;
   font-size: 50px;
 }
+
+.images-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 200px; /*Pushes container down.  This is done to create space between the header and the container*/
+}
+
+.paper-img,
+.rock-img,
+.scissors-img {
+  width: 120px;
+  height: 100px;
+}
