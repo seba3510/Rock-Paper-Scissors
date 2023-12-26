@@ -61,9 +61,9 @@ function getComputerChoice() {
  *
  * @returns {string} The player's choice ("ROCK", "PAPER", or "SCISSORS") or an error message.
  */
-function getPlayerChoice(choice) {
+function getPlayerChoice() {
     // Prompt the player to enter their choice
-    choice = prompt("Rock, Paper, or Scissors?");
+    let choice = prompt("Rock, Paper, or Scissors?");
 
     // Convert the player's input to uppercase for consistency
     switch ((choice.toLowerCase())) {
@@ -212,6 +212,101 @@ function tieMsg(choice) {
 
 //================================================================================================================
 
+/**
+ * The main function for the rock-paper-scissors game.
+ * Plays multiple rounds until either the player or the computer reaches a score of 3.
+ *
+ * @function game
+ */
+function game() {
 
 
-console.log(playRound(getPlayerChoice(), getComputerChoice()));
+    // Initialize player and computer scores, and round number
+    let pScore = 0;
+    let cScore = 0;
+    let round = 1;
+
+    // Continue playing until either player or computer reaches a score of 3
+    while ((pScore < 3) && (cScore < 3)) {
+
+        // Get player and computer choices
+        var playerSelection = getPlayerChoice();
+        var computerSelection = getComputerChoice();
+
+        // Log the current round number
+        console.log("Round #" + round);
+
+        // Play the round and get the result
+        let roundResult = playRound(playerSelection, computerSelection);
+
+        var msg = "";
+
+        // Check the result and update scores
+        if ((roundResult.includes("win"))) {
+            msg = winningMsg(playerSelection, computerSelection);
+            console.log(msg);
+            pScore++;
+        }
+
+        else if ((roundResult.includes("lose"))) {
+            //display message indicating that player lost
+            msg = losingMsg(playerSelection, computerSelection)
+            console.log(msg);
+            cScore++;
+        }
+
+        else if ((roundResult.includes("tie"))) {
+
+            // display message that the round ended in a tie
+            msg = tieMsg(playerSelection, computerSelection);
+            console.log(msg);
+            round--; // Decrement round to repeat the same round
+
+            // call playRound() again to play the round again
+            playRound(playerSelection, computerSelection);
+        }
+
+        // Increment the round number
+        round++;
+
+        // Log player and computer scores
+        console.log("Player Score: " + pScore);
+        console.log("Computer Score: " + cScore);
+    } // while()
+
+    // Determine and log the winner of the game
+    determineWinner(pScore, cScore);
+} // game()
+
+
+
+//================================================================================================================
+
+
+
+
+
+function determineWinner(pScore, cScore) {
+
+    let msg = "";
+    if ((pScore > cScore)) {
+        msg = "You are the winner!\n Your Score: " + pScore + "\n" + "Computer Score: " + cScore;
+
+    }
+
+    else if ((cScore > pScore)) {
+
+        msg = "You lose!\n Your Score: " + pScore + "\n" + "Computer Score: " + cScore;
+
+    }
+
+    else {
+
+        msg = "It's a tie!\n Your Score: " + pScore + "\n" + "Computer Score: " + cScore;
+
+    }
+
+    return msg;
+} // determineWinner()
+
+game(); 
