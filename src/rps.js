@@ -1,8 +1,9 @@
 /**
- * This  script represents a simple game of Rock Paper Scissors
- * 
+ * This script represents a simple game of Rock Paper Scissors.
+ *
  * @author Sebastian Corporan Berrios
  */
+
 
 
 // Holds all possible choices
@@ -56,16 +57,16 @@ function getComputerChoice() {
 /**
  * Prompts the player to enter their choice for a Rock, Paper, Scissors game.
  * Converts the player's input to uppercase for consistency and returns the chosen option.
- * If an invalid choice is entered, it throws an error and displays an alert.
+ * If an invalid choice is entered, it throws an error message in the console
  *
  * @returns {string} The player's choice ("ROCK", "PAPER", or "SCISSORS") or an error message.
  */
-function getPlayerChoice() {
+function getPlayerChoice(choice) {
     // Prompt the player to enter their choice
-    let choice = prompt("Rock, Paper, or Scissors?");
+    choice = prompt("Rock, Paper, or Scissors?");
 
     // Convert the player's input to uppercase for consistency
-    switch (choice.toLowerCase()) {
+    switch ((choice.toLowerCase())) {
         case "rock":
             return "ROCK";
 
@@ -79,6 +80,7 @@ function getPlayerChoice() {
             // Throw an error for invalid choices
             const err = "Invalid choice: " + choice;
             throw new Error(err);
+
     } // switch()
 } // getPlayerChoice()
 
@@ -121,15 +123,14 @@ function doesPlayerWin(pChoice, compChoice) {
 
 /**
  * Plays a round of Rock, Paper, Scissors game and determines the result.
+ * 
+ * @param {string} playerSelection - The choice made by the player ("ROCK", "PAPER", "SCISSORS")
+ * @param {string} computerSelection - The choice made by the computer ("ROCK", "PAPER", "SCISSORS")
  *
  * @returns {string} The result message indicating whether the player won, lost, or tied.
  */
-function playRound() {
-    // Get player and computer choices
-    let playerSelection = getPlayerChoice();
+function playRound(playerSelection, computerSelection) {
 
-
-    let computerSelection = getComputerChoice();
 
     // Determine if the player won or if it's a tie
     const hasPlayerWon = doesPlayerWin(playerSelection, computerSelection);
@@ -160,7 +161,7 @@ function playRound() {
  * @returns {boolean} True if it's a tie, false otherwise.
  */
 function isTied(pChoice, compChoice) {
-    return ((pChoice === compChoice));
+    return ((pChoice == compChoice));
 } // isTied()
 
 //================================================================================================================
@@ -213,4 +214,4 @@ function tieMsg(choice) {
 
 
 
-console.log(playRound())
+console.log(playRound(getPlayerChoice(), getComputerChoice()));
