@@ -216,7 +216,7 @@ function tieMsg(choice) {
  * The main function for the rock-paper-scissors game.
  * Plays multiple rounds until either the player or the computer reaches a score of 3.
  *
- * @function game
+ * 
  */
 function game() {
 
@@ -243,6 +243,7 @@ function game() {
 
         // Check the result and update scores
         if ((roundResult.includes("win"))) {
+            // display message indicating that the player won the round 
             msg = winningMsg(playerSelection, computerSelection);
             console.log(msg);
             pScore++;
@@ -274,7 +275,7 @@ function game() {
         console.log("Computer Score: " + cScore);
     } // while()
 
-    // Determine and log the winner of the game
+    // Determine and display the winner of the game
     determineWinner(pScore, cScore);
 } // game()
 
@@ -285,7 +286,14 @@ function game() {
 
 
 
-
+/**
+ * Determines the winner of the game based on player and computer scores.
+ *
+ * @function determineWinner
+ * @param {number} pScore - The player's score.
+ * @param {number} cScore - The computer's score.
+ * @returns {string} - A message indicating the winner or a tie, including the scores.
+ */
 function determineWinner(pScore, cScore) {
 
     let msg = "";
@@ -307,6 +315,11 @@ function determineWinner(pScore, cScore) {
     }
 
     return msg;
+
+
 } // determineWinner()
+
+//================================================================================================================
+
 
 game(); 
