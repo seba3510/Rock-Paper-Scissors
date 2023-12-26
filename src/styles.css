@@ -81,3 +81,10 @@ h1 {
   width: 120px;
   height: 100px;
 }
+
+.btns-container {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+}
