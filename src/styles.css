@@ -1,3 +1,4 @@
+/* Styles for h1 element */
 h1 {
   color: gold;
   text-align: center;
@@ -5,13 +6,75 @@ h1 {
   font-size: 50px;
 }
 
-.images-container {
+/* Styles for the scoreboard container */
+.scoreboard-container {
+  max-width: 575px;
+  max-height: 385px;
+  background: #4c1d95;
+  border-radius: 12px;
+  border: 3px solid white;
   display: flex;
-  justify-content: space-around;
+  flex-direction: row; /* Change to column to center vertically */
+  justify-content: center;
   align-items: center;
-  padding-top: 200px; /*Pushes container down.  This is done to create space between the header and the container*/
+  color: white;
+  padding: 68px 82px;
+  gap: 100px;
+  text-align: center;
+  padding-right: 90px;
+  margin: auto; /* Add this line to center horizontally */
 }
 
+/* Styles for rows within the container */
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Styles for h1 within col-header class */
+.col-header h1 {
+  font-family: "Verdana";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 36px;
+  text-align: center;
+  color: white;
+}
+
+/* Styles for col-display class */
+.col-display {
+  width: 155px;
+  height: 120px;
+  background: #080001;
+  border-radius: 5px;
+  font-family: "Silkscreen", cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 90px;
+  line-height: 110px;
+  text-align: center;
+  color: #f94f6d;
+}
+
+/* Styles for col-points class */
+.col-points {
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Styles for images-container class */
+.images-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 200px; /* Pushes container down. This is done to create space between the header and the container */
+}
+
+/* Styles for image classes */
 .paper-img,
 .rock-img,
 .scissors-img {
