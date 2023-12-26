@@ -236,6 +236,8 @@ function game() {
         // Log the current round number
         console.log("Round #" + round);
 
+
+
         // Play the round and get the result
         let roundResult = playRound(playerSelection, computerSelection);
 
@@ -276,7 +278,7 @@ function game() {
     } // while()
 
     // Determine and display the winner of the game
-    determineWinner(pScore, cScore);
+    console.log("Game Over!\n" + determineWinner(pScore, cScore));
 } // game()
 
 
@@ -298,19 +300,19 @@ function determineWinner(pScore, cScore) {
 
     let msg = "";
     if ((pScore > cScore)) {
-        msg = "You are the winner!\n Your Score: " + pScore + "\n" + "Computer Score: " + cScore;
+        msg = "You win!\nYour Score: " + pScore + "\n" + "Computer Score: " + cScore;
 
     }
 
     else if ((cScore > pScore)) {
 
-        msg = "You lose!\n Your Score: " + pScore + "\n" + "Computer Score: " + cScore;
+        msg = "You lose!\nYour Score: " + pScore + "\n" + "Computer Score: " + cScore;
 
     }
 
     else {
 
-        msg = "It's a tie!\n Your Score: " + pScore + "\n" + "Computer Score: " + cScore;
+        msg = "It's a tie!\nYour Score: " + pScore + "\n" + "Computer Score: " + cScore;
 
     }
 
