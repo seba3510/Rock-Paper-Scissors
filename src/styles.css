@@ -86,18 +86,17 @@ h1 {
 .btns-container {
   display: flex;
   justify-content: space-evenly;
-  text-align: center;
-  align-items: center;
   border: 10px solid red;
+  padding-top: 30px;
 }
 
 .rock-btn {
-  font-size: 40px;
-  border-radius: 90px;
-  margin-right: 55px;
+  font-size: 50px;
+  /* margin-left: 100px;
+  margin-right: 55px; */
+  margin-left: 100px;
   transition-duration: 0.5s; /* Determines speed of "hover" effect.*/
   cursor: pointer;
-  padding: 15px 25px;
 }
 
 .rock-btn:hover,
@@ -110,4 +109,10 @@ h1 {
   background-color: #563e8e;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+
+.paper-btn {
+  font-size: 50px;
+  /* border-radius: 50px; */
+  margin-right: 200px;
 }
