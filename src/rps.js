@@ -324,4 +324,33 @@ function determineWinner(pScore, cScore) {
 //================================================================================================================
 
 
-// game(); 
+// game();
+
+
+//================================================================================================================
+
+/**
+ * Represents the Rock button.
+ * @type {HTMLButtonElement}
+ */
+const rockBtn = document.querySelector(".rock-btn");
+
+/**
+ * Represents the Paper button
+ * @type {HTMLButtonElement}
+ */
+const paperBtn = document.querySelector(".paper-btn");
+
+/**
+ * Represents the Scissors button.
+ * @type {HTMLButtonElement}
+ */
+const scissorsBtn = document.querySelector(".scissors-btn");
+
+/**
+ * These variables store references to the corresponding HTML elements with the specified class names.
+ * They can be used to attach event listeners or manipulate the buttons.
+ */
+
+//================================================================================================================
+
