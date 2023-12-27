@@ -129,7 +129,11 @@ function doesPlayerWin(pChoice, compChoice) {
  *
  * @returns {string} The result message indicating whether the player won, lost, or tied.
  */
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
+
+
+    playerSelection = playerSelection.toUpperCase();
+    let computerSelection = getComputerChoice();
 
 
     // Determine if the player won or if it's a tie
@@ -354,3 +358,30 @@ const scissorsBtn = document.querySelector(".scissors-btn");
 
 //================================================================================================================
 
+
+rockBtn.addEventListener("click", () => {
+
+
+    console.log(playRound("rock"));
+
+});
+
+
+paperBtn.addEventListener("click", () => {
+    console.log(playRound("paper"));
+});
+
+
+
+scissorsBtn.addEventListener("click", () => {
+    console.log(playRound("scissors"));
+});
+
+
+
+function handleClick(btn) {
+
+
+
+
+} // handleClick()
