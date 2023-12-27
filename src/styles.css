@@ -22,7 +22,7 @@ h1 {
   gap: 100px;
   text-align: center;
   padding-right: 90px;
-  margin: auto; /* Centers scoreboard  horizontally */
+  margin: auto; /* Centers scoreboard horizontally */
 }
 
 /* Styles for rows within the container */
@@ -72,7 +72,7 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding-top: 100px; /*Pushes container down. This is done to create space between the header and the container */
+  padding-top: 100px; /* Pushes container down. This is done to create space between the header and the container */
 }
 
 /* Styles for image classes */
@@ -83,6 +83,7 @@ h1 {
   height: 100px;
 }
 
+/* Styles for btns-container class */
 .btns-container {
   display: flex;
   justify-content: space-evenly;
@@ -90,29 +91,38 @@ h1 {
   padding-top: 30px;
 }
 
+/* Styles for rock-btn class */
 .rock-btn {
   font-size: 50px;
-  /* margin-left: 100px;
-  margin-right: 55px; */
-  margin-left: 100px;
-  transition-duration: 0.5s; /* Determines speed of "hover" effect.*/
+  margin-left: 150px;
+  margin-bottom: 15px;
+  transition-duration: 0.5s; /* Determines speed of "hover" effect. */
   cursor: pointer;
 }
 
+/* Styles for hover effect on buttons */
 .rock-btn:hover,
 .scissors-btn:hover,
 .paper-btn:hover {
   background-color: #563e8e;
 }
 
+/* Styles for active state of rock-btn */
 .rock-btn:active {
   background-color: #563e8e;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
+/* Styles for paper-btn class */
 .paper-btn {
   font-size: 50px;
-  /* border-radius: 50px; */
-  margin-right: 200px;
+  margin-left: 200px;
+}
+
+/* Styles for scissors-btn class */
+.scissors-btn {
+  font-size: 50px;
+  margin-left: 120px;
+  margin-right: 115px;
 }
