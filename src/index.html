@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Metadata for character set and responsive design -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Page title -->
     <title>Rock Paper Scissors</title>
+
+    <!-- Link to external stylesheet for styling -->
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <!-- Page header with the title "Rock Paper Scissors" -->
     <div>
       <h1>Rock Paper Scissors</h1>
     </div>
 
+    <!-- Scoreboard container for player and computer scores -->
     <br />
     <br />
-
     <div class="scoreboard-container">
+      <!-- Player section -->
       <div class="row">
         <div class="col col-header">
           <h1>Player</h1>
         </div>
         <div class="col col-display" id="playerScore"></div>
-
         <div class="col col-points"></div>
       </div>
 
+      <!-- Computer section -->
       <div class="row">
         <div class="col col-header">
           <h1>Computer</h1>
         </div>
         <div class="col col-display" id="playerScore"></div>
-
         <div class="col col-points"></div>
       </div>
     </div>
 
+    <!-- Container for Rock, Paper, and Scissors images -->
     <div class="images-container">
       <div>
         <img src="../images/rock.jpg" alt="Rock" class="rock-img" />
       </div>
-
       <div>
         <img src="../images/paper.jpg" alt="Paper" class="paper-img" />
       </div>
-
       <div>
         <img src="../images/scissors.png" alt="Scissors" class="scissors-img" />
       </div>
     </div>
 
+    <!-- Container for Rock, Paper, and Scissors buttons -->
     <br />
     <br />
     <br />
@@ -55,15 +61,15 @@
       <div>
         <button class="rock-btn">Rock</button>
       </div>
-
       <div>
         <button class="paper-btn">Paper</button>
       </div>
-
       <div>
         <button class="scissors-btn">Scissors</button>
       </div>
     </div>
+
+    <!-- Link to external JavaScript file -->
     <script src="./rps.js"></script>
   </body>
 </html>
