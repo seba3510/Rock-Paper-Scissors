@@ -121,6 +121,21 @@ function doesPlayerWin(pChoice, compChoice) {
 
 //================================================================================================================
 
+// keep track of player and computer score
+let pScore = 0;
+let cScore = 0;
+
+
+// Reference to the element that displays the score of player
+const pScoreElem = document.querySelector(".pScore");
+
+
+// Reference to element that displays computer score
+const cScoreElem = document.querySelector(".cScore");
+
+// Reference to container that displays result 
+const resultElem = document.querySelector(".result-container");
+
 /**
  * Plays a round of Rock, Paper, Scissors game and determines the result.
  * 
@@ -142,15 +157,25 @@ function playRound(playerSelection) {
 
     // Return the appropriate result message
     if ((hasPlayerWon)) {
-        return winningMsg(playerSelection, computerSelection);
+        resultElem.textContent = winningMsg(playerSelection, computerSelection);
+        pScore++;
     }
 
     else if ((tie)) {
-        return tieMsg(playerSelection, computerSelection);
+        resultElem.textContent = tieMsg(playerSelection, computerSelection);
+
     }
 
     else {
-        return losingMsg(playerSelection, computerSelection);
+        resultElem.textContent = losingMsg(playerSelection, computerSelection);
+        cScore++;
+    }
+
+    pScoreElem.textContent = "Player Score: " + pScore;
+    cScoreElem.textContent = "Computer Score: " + cScore;
+
+    if ((pScore == 5) || (cScore == 5)) {
+        determineWinner
     }
 } // playRound()
 
@@ -213,38 +238,6 @@ function tieMsg(choice) {
     return msg;
 } // tieMsg()
 
-//================================================================================================================
-
-
-// keep track of player and computer score
-let pScore = 0;
-let cScore = 0;
-
-
-// Reference to the element that displays the score of player
-const pScoreElem = document.querySelector(".pScore");
-
-
-// Reference to element that displays computer score
-const cScoreElem = document.querySelector(".cScore");
-
-// Reference to container that displays result 
-const resultElem = document.querySelector(".result-container");
-/**
- * The main function for the rock-paper-scissors game.
- * Plays multiple rounds until either the player or the computer reaches a score of 3.
- *
- * 
- */
-function game() {
-
-
-
-
-    // Determine and display the winner of the game
-    console.log("Game Over!\n" + determineWinner(pScore, cScore));
-} // game()
-
 
 
 //================================================================================================================
@@ -289,4 +282,42 @@ function determineWinner(pScore, cScore) {
 
 
 // game();
+
+//================================================================================================================
+
+
+const rockBtn = document.querySelector(".rock-btn");
+
+const paperBtn = document.querySelector(".paper-btn");
+
+const scissorsBtn = document.querySelector(".scissors-btn");
+
+
+function handleRockClick() {
+
+    rockBtn.addEventListener("click", () => playRound("rock"));
+
+} // handleRockClick()
+
+
+
+function handlePaperClick() {
+
+    paperBtn.addEventListener("click", () => playRound("paper"));
+
+} // handlePaperClick()
+
+
+function handleScissorsClick() {
+
+    scissorsBtn.addEventListener("click", () => playRound("scissors"));
+
+} // handlePaperClick()
+
+
+handleRockClick();
+handlePaperClick();
+handleScissorsClick();
+
+
 
