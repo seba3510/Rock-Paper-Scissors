@@ -330,3 +330,10 @@ function determineWinner(pScore, cScore) {
 
 // game();
 
+
+//================================================================================================================
+
+
+const rockBtn = document.querySelector(".rock-btn");
+
+const paperBtn = document.querySelector(".paper-btn")
