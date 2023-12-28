@@ -336,4 +336,46 @@ function determineWinner(pScore, cScore) {
 
 const rockBtn = document.querySelector(".rock-btn");
 
-const paperBtn = document.querySelector(".paper-btn")
+const paperBtn = document.querySelector(".paper-btn");
+
+const scissorsBtn = document.querySelector(".scissors-btn");
+
+const playerScoreDisplay = document.querySelector(".scores-container .player-score");
+
+
+let computerScore = 0;
+let playerScore = 0;
+
+function handleClick(btn) {
+
+    btn.addEventListener("click", () => {
+
+        alert("You have clicked me");
+        displayScore(playerScore);
+
+    });
+
+} // handleClick()
+
+
+
+
+
+//================================================================================================================
+
+
+
+
+playerScoreDisplay.textContent = "Player Score: " + playerScore;
+
+function displayScore(score) {
+
+    const playerScoreDisplay = document.querySelector("")
+
+} // displayScore()
+
+
+handleClick(rockBtn);
+handleClick(paperBtn);
+handleClick(scissorsBtn);
+
