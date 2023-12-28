@@ -9,7 +9,7 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding-bottom: 500px;
+  /* padding-bottom: 500px; */
   padding-top: 200px;
 }
 
@@ -28,11 +28,9 @@ button {
 .scores-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.scores-container .player-score {
-  padding-left: 500px;
-  font-size: 100px;
+.pScore {
+  font-size: 90px;
   font-weight: bold;
 }

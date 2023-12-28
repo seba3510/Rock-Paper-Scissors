@@ -130,8 +130,7 @@ function doesPlayerWin(pChoice, compChoice) {
  * @returns {string} The result message indicating whether the player won, lost, or tied.
  */
 function playRound(playerSelection) {
-
-
+    let div = document.querySelector(".result-container");
     playerSelection = playerSelection.toUpperCase();
     let computerSelection = getComputerChoice();
 
@@ -142,16 +141,18 @@ function playRound(playerSelection) {
 
     // Return the appropriate result message
     if ((hasPlayerWon)) {
-        return winningMsg(playerSelection, computerSelection);
+        div.innerHTML = winningMsg(playerSelection, computerSelection);
     }
 
     else if ((tie)) {
-        return tieMsg(playerSelection, computerSelection);
+        div.innerHTML = tieMsg(playerSelection, computerSelection);
     }
 
     else {
-        return losingMsg(playerSelection, computerSelection);
+        div.innerHTML = losingMsg(playerSelection, computerSelection);
     }
+
+    div.append(div);
 } // playRound()
 
 
@@ -225,64 +226,10 @@ function tieMsg(choice) {
 function game() {
 
 
-    // Initialize player and computer scores, and round number
-    let pScore = 0;
-    let cScore = 0;
+    //  and round number
     let round = 1;
 
-    // Continue playing until either player or computer reaches a score of 3
-    while ((pScore < 3) && (cScore < 3)) {
 
-        // Get player and computer choices
-        var playerSelection = getPlayerChoice();
-        var computerSelection = getComputerChoice();
-
-        // Log the current round number
-        console.log("Round #" + round);
-
-
-
-        // Play the round and get the result
-        let roundResult = playRound(playerSelection, computerSelection);
-
-        var msg = "";
-
-        // Check the result and update scores
-        if ((roundResult.includes("win"))) {
-            // display message indicating that the player won the round 
-            msg = winningMsg(playerSelection, computerSelection);
-            console.log(msg);
-            pScore++;
-        }
-
-        else if ((roundResult.includes("lose"))) {
-            //display message indicating that player lost
-            msg = losingMsg(playerSelection, computerSelection)
-            console.log(msg);
-            cScore++;
-        }
-
-        else if ((roundResult.includes("tie"))) {
-
-            // display message that the round ended in a tie
-            msg = tieMsg(playerSelection, computerSelection);
-            console.log(msg);
-            round--; // Decrement round to repeat the same round
-
-            // call playRound() again to play the round again
-            playRound(playerSelection, computerSelection);
-        }
-
-        // Increment the round number
-        round++;
-
-        // Log player and computer scores
-        console.log("Player Score: " + pScore);
-        console.log("Computer Score: " + cScore);
-    } // while()
-
-    // Determine and display the winner of the game
-    console.log("Game Over!\n" + determineWinner(pScore, cScore));
 } // game()
 
 
@@ -340,7 +287,9 @@ const paperBtn = document.querySelector(".paper-btn");
 
 const scissorsBtn = document.querySelector(".scissors-btn");
 
-const playerScoreDisplay = document.querySelector(".scores-container .player-score");
+const playerScoreDisplay = document.querySelector(".pScore");
+
+const compScoreDisplay = document.querySelector(".cScore");
 
 
 let computerScore = 0;
@@ -349,6 +298,21 @@ let playerScore = 0;
 function handleRockClick() {
 
     rockBtn.addEventListener("click", () => {
+
+        let round = playRound("rock");
+
+        switch ((round)) {
+            case winningMsg("rock"):
+                break;
+                playerScore++;
+            case losingMsg("rock"):
+                computerScore++;
+                break;
+
+            case tieMsg("rock"):
+                break;
+        } // switch()
+
 
     });
 
@@ -363,14 +327,18 @@ function handleRockClick() {
 
 function displayPlayerScore(score) {
 
-    playerScoreDisplay.innerHTML = "<h2> Player Score: " + score;
+    playerScoreDisplay.innerHTML = "Player Score: " + score + "";
+
 
 } // displayScore()
 
-function updateScore(score) {
-    score = score + 1;
-}// updateScore()
-handleClick(rockBtn);
-handleClick(paperBtn);
-handleClick(scissorsBtn);
 
+function displayComputerScore(score) {
+
+    compScoreDisplay.innerHTML = "Computer Score: " + score;
+
+} // displayComputerScore()
+
+
+
+handleRockClick();
