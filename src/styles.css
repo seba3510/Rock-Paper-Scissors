@@ -33,4 +33,13 @@ button {
 .pScore {
   font-size: 90px;
   font-weight: bold;
+  padding-top: 100px;
+  padding-left: 200px;
+}
+
+.cScore {
+  font-size: 90px;
+  font-weight: bold;
+  padding-right: 550px;
+  padding-top: 150px;
 }
