@@ -9,9 +9,6 @@
 // Holds all possible choices
 const arr = ["Rock", "Paper", "Scissors"];
 
-let playerScore = 0;
-let computerScore = 0;
-
 /**
  * This function generates a random choice for the computer in a Rock, Paper, Scissors game.
  * @returns {string} The computer's random choice ("ROCK", "PAPER", or "SCISSORS").
@@ -89,7 +86,6 @@ function getPlayerChoice() {
 
 //================================================================================================================
 
-
 /**
  * Determines if the player wins in a round  based on their and the computer's choices.
  *
@@ -125,7 +121,6 @@ function doesPlayerWin(pChoice, compChoice) {
 
 //================================================================================================================
 
-
 /**
  * Plays a round of Rock, Paper, Scissors game and determines the result.
  * 
@@ -135,13 +130,11 @@ function doesPlayerWin(pChoice, compChoice) {
  * @returns {string} The result message indicating whether the player won, lost, or tied.
  */
 function playRound(playerSelection) {
+
+
     playerSelection = playerSelection.toUpperCase();
     let computerSelection = getComputerChoice();
 
-
-    const resultContainer = document.querySelector(".result-container");
-    const playerScoreElement = document.querySelector(".pScore")
-    const computerScoreElement = document.getElementById(".cScore");
 
     // Determine if the player won or if it's a tie
     const hasPlayerWon = doesPlayerWin(playerSelection, computerSelection);
@@ -149,26 +142,16 @@ function playRound(playerSelection) {
 
     // Return the appropriate result message
     if ((hasPlayerWon)) {
-        resultContainer.textContent = winningMsg(playerSelection, computerSelection);
-        playerScore++;
-
+        return winningMsg(playerSelection, computerSelection);
     }
 
     else if ((tie)) {
-        resultContainer.textContent = tieMsg(playerSelection, computerSelection);
-
+        return tieMsg(playerSelection, computerSelection);
     }
 
     else {
-        resultContainer.textContent = losingMsg(playerSelection, computerSelection);
-        computerScore++;
-
+        return losingMsg(playerSelection, computerSelection);
     }
-
-    playerScoreElement = playerScore;
-    computerScoreElement = computerScore;
-
-
 } // playRound()
 
 
@@ -219,7 +202,6 @@ function losingMsg(pChoice, compChoice) {
 
 //================================================================================================================
 
-
 /**
  * Generates a message for a tie scenario.
  *
@@ -234,7 +216,34 @@ function tieMsg(choice) {
 //================================================================================================================
 
 
+// keep track of player and computer score
+let pScore = 0;
+let cScore = 0;
 
+
+// Reference to the element that displays the score of player
+const pScoreElem = document.querySelector(".pScore");
+
+
+// Reference to element that displays computer score
+const cScoreElem = document.querySelector(".cScore");
+
+// Reference to container that displays result 
+const resultElem = document.querySelector(".result-container");
+/**
+ * The main function for the rock-paper-scissors game.
+ * Plays multiple rounds until either the player or the computer reaches a score of 3.
+ *
+ * 
+ */
+function game() {
+
+
+
+
+    // Determine and display the winner of the game
+    console.log("Game Over!\n" + determineWinner(pScore, cScore));
+} // game()
 
 
 
@@ -279,14 +288,5 @@ function determineWinner(pScore, cScore) {
 //================================================================================================================
 
 
+// game();
 
-
-
-
-const rockBtn = document.querySelector('.rock-btn');
-const paperBtn = document.querySelector('.paper-btn');
-const scissorsBtn = document.querySelector('.scissors-btn');
-
-rockBtn.addEventListener('click', () => playRound('rock'));
-paperBtn.addEventListener('click', () => playRound('paper'));
-scissorsBtn.addEventListener('click', () => playRound('scissors'));
