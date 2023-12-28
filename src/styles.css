@@ -4,3 +4,22 @@ h1 {
   font-weight: bold;
   color: green;
 }
+
+.btns-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 500px;
+}
+
+button {
+  border-radius: 10px;
+  border: 10px solid blue;
+  cursor: pointer;
+}
+
+.paper-img,
+.rock-img,
+.scissors-img {
+  height: 200px;
+}
