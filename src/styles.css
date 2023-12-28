@@ -25,6 +25,14 @@ button {
   height: 200px;
 }
 
-.scores-container .playerScore {
+.scores-container {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+}
+
+.scores-container .player-score {
+  padding-left: 500px;
+  font-size: 100px;
+  font-weight: bold;
 }

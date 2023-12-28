@@ -346,18 +346,13 @@ const playerScoreDisplay = document.querySelector(".scores-container .player-sco
 let computerScore = 0;
 let playerScore = 0;
 
-function handleClick(btn) {
+function handleRockClick() {
 
-    btn.addEventListener("click", () => {
-
-        alert("You have clicked me");
-        displayScore(playerScore);
+    rockBtn.addEventListener("click", () => {
 
     });
 
-} // handleClick()
-
-
+} // handleRockClick()
 
 
 
@@ -366,15 +361,15 @@ function handleClick(btn) {
 
 
 
-playerScoreDisplay.textContent = "Player Score: " + playerScore;
+function displayPlayerScore(score) {
 
-function displayScore(score) {
-
-    const playerScoreDisplay = document.querySelector("")
+    playerScoreDisplay.innerHTML = "<h2> Player Score: " + score;
 
 } // displayScore()
 
-
+function updateScore(score) {
+    score = score + 1;
+}// updateScore()
 handleClick(rockBtn);
 handleClick(paperBtn);
 handleClick(scissorsBtn);
