@@ -157,25 +157,34 @@ function playRound(playerSelection) {
 
     // Return the appropriate result message
     if ((hasPlayerWon)) {
-        resultElem.textContent = winningMsg(playerSelection, computerSelection);
+        resultElem.innerHTML = winningMsg(playerSelection, computerSelection);
         pScore++;
     }
 
     else if ((tie)) {
-        resultElem.textContent = tieMsg(playerSelection, computerSelection);
+        resultElem.innerHTML = tieMsg(playerSelection, computerSelection);
 
     }
 
     else {
-        resultElem.textContent = losingMsg(playerSelection, computerSelection);
+        resultElem.innerHTML = losingMsg(playerSelection, computerSelection);
         cScore++;
     }
 
     pScoreElem.textContent = "Player Score: " + pScore;
     cScoreElem.textContent = "Computer Score: " + cScore;
 
-    if ((pScore == 5) || (cScore == 5)) {
-        determineWinner
+    if ((pScore == 5)) {
+        resultElem.innerHTML = "Game Over! <br>You win! <br> Refresh the page to play again"
+        pScore = 0;
+        cScore = 0;
+
+    }
+
+    else if ((cScore == 5)) {
+        resultElem.innerHTML = "Game Over! <br> You lose! <br> Refresh the page to play again";
+        pScore = 0;
+        cScore = 0;
     }
 } // playRound()
 
@@ -278,10 +287,8 @@ function determineWinner(pScore, cScore) {
 
 } // determineWinner()
 
-//================================================================================================================
 
 
-// game();
 
 //================================================================================================================
 
@@ -292,12 +299,19 @@ const paperBtn = document.querySelector(".paper-btn");
 
 const scissorsBtn = document.querySelector(".scissors-btn");
 
+//================================================================================================================
+
+
 
 function handleRockClick() {
 
     rockBtn.addEventListener("click", () => playRound("rock"));
 
 } // handleRockClick()
+
+
+//================================================================================================================
+
 
 
 
@@ -307,12 +321,18 @@ function handlePaperClick() {
 
 } // handlePaperClick()
 
+//================================================================================================================
+
+
 
 function handleScissorsClick() {
 
     scissorsBtn.addEventListener("click", () => playRound("scissors"));
 
 } // handlePaperClick()
+
+//================================================================================================================
+
 
 
 handleRockClick();
