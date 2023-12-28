@@ -43,3 +43,9 @@ button {
   padding-right: 550px;
   padding-top: 150px;
 }
+
+.result-container {
+  text-align: center;
+  font-size: 150px;
+  padding-top: 150px;
+}
