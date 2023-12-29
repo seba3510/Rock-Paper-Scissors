@@ -11,7 +11,7 @@
    
 ## Description
 This rock, paper, scissors game is a project developed as part of The Odin Project's JavaScript course.
-
+It features a simple game of rock paper scissors against the computer.  The first one to win 5 times is declared the winner
 ## Features
 - Player vs. computer gameplay
 - Randomized computer choices
